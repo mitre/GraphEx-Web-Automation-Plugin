@@ -1,0 +1,58 @@
+trigger:
+ branches:
+  include:
+  - master
+  - develop
+ paths:
+   exclude:
+     - '.*'
+     - 'README.md'
+
+resources:
+  repositories:
+    - repository: resources
+      type: git
+      name: ESSP/pipeline-resources
+
+jobs:
+- job: PublishPackage
+  displayName: 'Publish Package'
+  pool:
+    name: 'ESSP_Production_Pool'
+  steps:
+  - checkout: self
+    clean: true
+
+  - template: templates/install_requirements.yml@resources
+
+  - bash: | 
+      python3 -m venv $(Agent.TempDirectory)/build-venv
+      $(Agent.TempDirectory)/build-venv/bin/python3 -m pip install wheel build twine
+    displayName: create venv
+
+  - bash: |
+      $(Agent.TempDirectory)/build-venv/bin/python3 -m build || exit 1
+    displayName: Build Package
+
+  - bash: ls -Alh dist/
+    displayName: View Build Outputs
+    
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    - task: TwineAuthenticate@1
+      displayName: Twine Authenticate
+      inputs:
+        artifactFeed: ESSP/ESSP_Packages
+
+    - bash: $(Agent.TempDirectory)/build-venv/bin/python3 -m twine upload -r "ESSP_Packages" --config-file $(PYPIRC_PATH) dist/*
+      displayName: Publish Build
+
+  - ${{ if or(eq(variables['Build.SourceBranch'], 'refs/heads/develop'),eq(variables['Build.SourceBranch'], 'refs/heads/master')) }}:
+  
+      - task: TwineAuthenticate@1
+        displayName: Twine Authenticate
+        inputs:
+          artifactFeed: ESSP/Development_ESSP_Packages
+
+      - bash: $(Agent.TempDirectory)/build-venv/bin/python3 -m twine upload -r "Development_ESSP_Packages" --config-file $(PYPIRC_PATH) dist/*
+        displayName: Publish Build
+        continueOnError: true
