@@ -29,7 +29,7 @@ from graphex import (
     DataContainer,
 )
 
-from graphex_webautomation_plugin import (
+from graphex-webautomation-plugin import (
     datatypes,
     exceptions,
     constants,

@@ -17,7 +17,7 @@ This repository is not intended for standalone use. It bridges the gap between P
 
 # Using Playwright Nodes
 
-The `graphex_webautomation_plugin` leverages the [Playwright](https://playwright.dev/) Python package by Microsoft. This open-source tool automates browser interactions with Chromium, Firefox, and WebKit in Python, among other languages. A standout feature is Playwright's code generation tool, simplifying browser interaction scripting.
+The `graphex-webautomation-plugin` leverages the [Playwright](https://playwright.dev/) Python package by Microsoft. This open-source tool automates browser interactions with Chromium, Firefox, and WebKit in Python, among other languages. A standout feature is Playwright's code generation tool, simplifying browser interaction scripting.
 
 ## Interacting with the Browser
 
@@ -138,7 +138,7 @@ By carefully reviewing and refining the codegen's output, your automation become
 
 # Advanced Playwright Nodes
 
-Web automation, particularly with tools as advanced as Playwright, offers an array of features that often go unnoticed by many. To truly harness the power of the `graphex_webautomation_plugin` and Playwright, it's crucial to delve deeper into the advanced nodes the plugin provides. A deeper understanding the playwright framework can be found [here](https://playwright.dev/python/docs/api/class-playwright).
+Web automation, particularly with tools as advanced as Playwright, offers an array of features that often go unnoticed by many. To truly harness the power of the `graphex-webautomation-plugin` and Playwright, it's crucial to delve deeper into the advanced nodes the plugin provides. A deeper understanding the playwright framework can be found [here](https://playwright.dev/python/docs/api/class-playwright).
 
 ## Locators
 
@@ -246,7 +246,7 @@ Once you've honed in on the target element(s) using locators and filters, action
   ![image](./.images/screen_shot_example.png)
   
 
-By chaining locators, filters, and actions, you can construct powerful automation sequences that navigate, interact with, and even adapt to the dynamic content of modern webpages. This trifecta forms the bedrock of advanced web automation with Playwright in the `graphex_webautomation_plugin`.
+By chaining locators, filters, and actions, you can construct powerful automation sequences that navigate, interact with, and even adapt to the dynamic content of modern webpages. This trifecta forms the bedrock of advanced web automation with Playwright in the `graphex-webautomation-plugin`.
 
 
 

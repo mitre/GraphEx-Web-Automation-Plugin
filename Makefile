@@ -16,7 +16,7 @@ build:
 	$(MAKE) docs
 
 docs:
-	@cd graphex_webautomation_plugin/docs && ./convertMarkdown.bash
+	@cd graphex-webautomation-plugin/docs && ./convertMarkdown.bash
 
 install:
 	pip install dist/*.whl
@@ -24,6 +24,6 @@ install:
 
 remove:
 	rm -rf dist build
-	pip uninstall -y graphex_webautomation_plugin
+	pip uninstall -y graphex-webautomation-plugin
 
 .PHONY: all build install remove

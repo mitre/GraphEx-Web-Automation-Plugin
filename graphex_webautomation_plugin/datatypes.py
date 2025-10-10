@@ -1,5 +1,5 @@
 # from graphex import String
-from graphex_webautomation_plugin import constants
+from graphex-webautomation-plugin import constants
 from graphex.datatype import DataType
 from playwright import sync_api
 from graphex import String
