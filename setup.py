@@ -7,5 +7,5 @@ setup(
     description="A plugin for adding playwright nodes to graphex.",
     packages=find_packages(include=["graphex-webautomation-plugin*"]),
     python_requires=">=3.8",
-    install_requires=["graphex>=0.3.0", "playwright==1.46.0"],
+    install_requires=["mitre-graphex>=1.16.0", "playwright==1.46.0"],
 )
