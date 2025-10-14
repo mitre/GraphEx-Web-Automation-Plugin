@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="graphex-webautomation-plugin",
-    version="1.1.0",
+    version="1.1.1",
     author="The MITRE Corporation",
     description="A plugin for adding playwright nodes to graphex.",
     packages=find_packages(include=["graphex-webautomation-plugin*"]),
