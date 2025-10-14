@@ -16,7 +16,7 @@ build:
 	$(MAKE) docs
 
 docs:
-	@cd graphex-webautomation-plugin/docs && ./convertMarkdown.bash
+	@cd graphex_webautomation_plugin/docs && ./convertMarkdown.bash
 
 install:
 	pip install dist/*.whl
