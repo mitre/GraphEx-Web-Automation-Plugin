@@ -7,13 +7,13 @@ This software was produced for the U. S. Government under Basic Contract No. W56
 
 
 # Introduction 
-Graphex plugin enabling web automation.
+[GraphEx](https://github.com/mitre/GraphEx) plugin enabling web automation using playwright. This plugin is an extension to the [GraphEx application](https://github.com/mitre/GraphEx).
 
 # Installation
 Install the plugin with the command `make all`. This also sets up the required Playwright tools for automation.
 
 # Execution
-This repository is not intended for standalone use. It bridges the gap between Python's Playwright web automation tool and the Graphex module.
+This repository is not intended for standalone use. It bridges the gap between Python's Playwright web automation tool and the mitre-graphex python module.
 
 # Using Playwright Nodes
 
@@ -23,7 +23,7 @@ The `graphex-webautomation-plugin` leverages the [Playwright](https://playwright
 
 The `Create Playwright Browser Context` node initiates a browser context, akin to manually opening a new browser window. Multiple pages can be opened within this context.
 
-![image](./.images/create_page.png)
+![image](graphex_webautomation_plugin/docs/markdown/.images/create_page.png)
 
 For clarity: manually launching a browser and logging into a site means you won't need to log in again when opening a new tab in that browser. This is due to session retention (usually via cookies). Likewise, Playwright's browser context maintains session data across its pages, so actions like logging in on one page are recognized on others within the same context.
 
@@ -75,11 +75,11 @@ python3 -m playwright codegen --ignore-https-errors --viewport "1920, 1080"
 
 This command launches a Chromium browser alongside Playwright's code generator. Interact with the browser, and it'll log commands for you.
 
-![image](./.images/cats.png)
+![image](graphex_webautomation_plugin/docs/markdown/.images/cats.png)
 
 For the `Execute Playwright Page Script` node, extract commands post `goto` (assuming a predefined URL):
 
-![image](./.images/playwright_codegen_example.png)
+![image](graphex_webautomation_plugin/docs/markdown/.images/playwright_codegen_example.png)
 
 Then, input the code block into the node's `page_commands`.
 
@@ -91,7 +91,7 @@ While Playwright's Python codegen tool is an excellent starting point for web au
    
     Avoid relying on hardcoded values, like specific version numbers. For instance, while automating the task of navigating to the Express NPM package page and selecting the latest version:
 
-    ![image](./.images/npm_example.png)
+    ![image](graphex_webautomation_plugin/docs/markdown/.images/npm_example.png)
     
     As of october 2023, playwright codegen will produce this code:
 
@@ -157,22 +157,22 @@ Examples:
 - **Fetching a button**:
    Suppose you have a webpage with buttons that says "Hover":
 
-   ![image](./.images/button_example_pure.png)
+   ![image](graphex_webautomation_plugin/docs/markdown/.images/button_example_pure.png)
    
   To target these buttons, we can use the following nodes:
    
-   ![image](./.images/button_example.png)
+   ![image](graphex_webautomation_plugin/docs/markdown/.images/button_example.png)
    
    This graph fetches the buttons based on its role and name (which is typically its accessible label). In this case all 'Hover' buttons are selected.
 
 - **Fetching all links**:
    Suppose instead we want to target all links on a page:
 
-  ![image](./.images/link_example_pure.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/link_example_pure.png)
 
   The following nodes well target all links:
 
-  ![image](./.images/get_link_graph.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/get_link_graph.png)
 
   This graph fetches all links found on the page.
    
@@ -194,11 +194,11 @@ Example:
 
 Lets say we want to click the link with text `a text link`:
 
-![image](./.images/page_link_example.png)
+![image](graphex_webautomation_plugin/docs/markdown/.images/page_link_example.png)
 
 We can use the following graph to find all links and filter to this exact name via regex:
 
-![image](./.images/Filter_By_Regex.png)
+![image](graphex_webautomation_plugin/docs/markdown/.images/Filter_By_Regex.png)
 
 
 In the above code, the locator fetches all anchor (`a`) tags, but the filter refines the selection to only those containing the exact match "a text link".
@@ -213,42 +213,37 @@ Once you've honed in on the target element(s) using locators and filters, action
   
   Example: Suppose we want to click this first 'Hover' button on a page:
 
-  ![image](./.images/button_example_pure.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/button_example_pure.png)
 
 
   The following graph will search for all buttons named 'Hover' and click the first one.
 
-  ![image](./.images/click_example_graph.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/click_example_graph.png)
 
   After this graph is executed the first element will be clicked.
 
-  ![image](./.images/click_example.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/click_example.png)
 
 
 - **Fill**: Enter text into input fields.
 
   Example: Suppose we want to fill in the 'Text Input label' input:
 
-  ![image](./.images/pre_fill_example.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/pre_fill_example.png)
 
   We can do so with the following graph:
 
-  ![image](./.images/fill_graph_example.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/fill_graph_example.png)
 
   This graph will locate the input element by label and fill it with the appropriate text.
 
-  ![image](./.images/post_fill_example.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/post_fill_example.png)
 
 - **Screenshot**: Capture visual state of an element or entire page.
 
   Screenshots of the browser can be logged for easy debugging. Using the fill example above, we can capture the browser screen before and after inputing the text with the following graph.
 
-  ![image](./.images/screen_shot_example.png)
+  ![image](graphex_webautomation_plugin/docs/markdown/.images/screen_shot_example.png)
   
 
 By chaining locators, filters, and actions, you can construct powerful automation sequences that navigate, interact with, and even adapt to the dynamic content of modern webpages. This trifecta forms the bedrock of advanced web automation with Playwright in the `graphex-webautomation-plugin`.
-
-
-
-
-
