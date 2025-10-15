@@ -7,13 +7,13 @@ This software was produced for the U. S. Government under Basic Contract No. W56
 
 
 # Introduction 
-Graphex plugin enabling web automation.
+[GraphEx](https://github.com/mitre/GraphEx) plugin enabling web automation using playwright. This plugin is an extension to the [GraphEx application](https://github.com/mitre/GraphEx).
 
 # Installation
 Install the plugin with the command `make all`. This also sets up the required Playwright tools for automation.
 
 # Execution
-This repository is not intended for standalone use. It bridges the gap between Python's Playwright web automation tool and the Graphex module.
+This repository is not intended for standalone use. It bridges the gap between Python's Playwright web automation tool and the mitre-graphex python module.
 
 # Using Playwright Nodes
 
