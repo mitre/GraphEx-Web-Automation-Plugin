@@ -1,0 +1,2 @@
+graft graphex_webautomation_plugin/docs
+global-exclude __pycache__ *.py[cod]

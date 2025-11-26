@@ -241,6 +241,6 @@ Once you've honed in on the target element(s) using locators and filters, action
 By chaining locators, filters, and actions, you can construct powerful automation sequences that navigate, interact with, and even adapt to the dynamic content of modern webpages. This trifecta forms the bedrock of advanced web automation with Playwright in the `graphex-webautomation-plugin`.
 
 
+## Changelog
 
-
-
+The changelog for this plugin [can be found on this page.](changelog.md)
