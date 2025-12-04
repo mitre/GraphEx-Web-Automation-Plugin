@@ -20,7 +20,11 @@ docs:
 
 install:
 	pip install dist/*.whl
-	python3 -m playwright install
+	if [ -f /etc/oracle-release ]; then \
+		python3 -m playwright install chromium; \
+	else \
+		python3 -m playwright install; \
+	fi
 
 remove:
 	rm -rf dist build
