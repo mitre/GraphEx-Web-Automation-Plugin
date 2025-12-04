@@ -22,7 +22,7 @@ def read_readme():
 
 setup(
     name="graphex-webautomation-plugin",
-    version="1.1.3",
+    version="1.2.0",
     author="The MITRE Corporation",
     description="A plugin for adding playwright nodes to graphex.",
     long_description=read_readme(),
@@ -51,6 +51,11 @@ setup(
     packages=find_namespace_packages(include=["graphex_webautomation_plugin*"]),
     package_data=get_package_data(),
     python_requires=">=3.8",
-    install_requires=["mitre-graphex>=1.16.0", "playwright==1.46.0"],
+    install_requires=[
+        "mitre-graphex>=1.18.0",
+        "playwright==1.56.0",
+            # for playwright to match mitre-graphex
+            "greenlet==3.2.4"
+        ],
     include_package_data=True
 )
